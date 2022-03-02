@@ -10,7 +10,8 @@ app.get("/", (req, res) => {
     data += chunk;
   });
   resp.on('end', () => {
-    if(resp.getHeader('Content-Type') == "text/html") {
+    console.log(resp.headers)
+    if(resp.header['Content-Type'] == "text/html") {
       res.set('Content-Type', 'text/text');
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.send(data);

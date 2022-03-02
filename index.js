@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
   });
   resp.on('end', () => {
     console.log(resp.headers)
-    if(resp.header['Content-Type'] == "text/html") {
+    if(resp.header['content-type'] == "text/html") {
       res.set('Content-Type', 'text/text');
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.send(data);

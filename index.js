@@ -10,9 +10,14 @@ app.get("/", (req, res) => {
     data += chunk;
   });
   resp.on('end', () => {
-    res.set('Content-Type', 'text/text');
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.send(data);
+    if(resp.getHeader('Content-Type') == "text/html") {
+      res.set('Content-Type', 'text/text');
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.send(data);
+    } else {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.send(data);
+    }
   });
 
 }).on("error", (err) => {

@@ -16,6 +16,7 @@ app.get("/", (req, res) => {
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.send(data);
     } else {
+      res.set('Content-Type', resp.headers['content-type']);
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.send(data);
     }

@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
     } else {
       res.set('Content-Type', resp.headers['content-type']);
       res.setHeader('Access-Control-Allow-Origin', '*');
-      res.send(data);
+      res.send(Buffer.from(Buffer(data).toString('base64'), 'base64'););
     }
   });
 
